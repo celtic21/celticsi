@@ -11,10 +11,9 @@ class Register extends CI_Controller {
 
 	public function index()
 	{
-		$data = array ( 'title' 	=> 'Halaman Pendaftaran',
- 						'isi'		=> 'register/list'
- 					);
- 		$this->load->view('register/layout/wrapper', $data, FALSE);
+		$data = array ( 'title' 	=> 'Pendaftaran',
+						'si'		=> 'Skripsi UMK');
+ 		$this->load->view('register/list', $data, FALSE);
 	}
 
 }

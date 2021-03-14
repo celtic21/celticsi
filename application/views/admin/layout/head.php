@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <link rel="shorcut icon"  href="../assets/stisla/assets/img/umk/favicon-16x16.png">
   <title><?php echo $title ?>  &mdash; Stisla</title>
 
   <!-- General CSS Files -->
@@ -12,7 +13,6 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/stisla/assets/css/style.css">
   <link rel="stylesheet" href="../assets/stisla/assets/css/components.css">
-  <link rel="stylesheet" href="../assets/stisla/assets/css/added.css">
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../assets/stisla/node_modules/jqvmap/dist/jqvmap.min.css">

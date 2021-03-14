@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <link rel="shorcut icon"  href="<?php echo base_url() ?>assets/stisla/assets/img/umk/favicon-16x16.png">
+  <title><?php echo $title ?> &mdash; <?=$si ?></title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="../assets/secure/node_modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/node_modules/bootstrap-social/bootstrap-social.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/secure/assets/css/style.css">
-  <link rel="stylesheet" href="../assets/secure/assets/css/components.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/assets/css/components.css">
 </head>
 
 <body>
@@ -23,27 +26,45 @@
       <div class="d-flex flex-wrap align-items-stretch">
         <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
           <div class="p-4 m-3">
-            <img src="../assets/secure/assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
-            <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Stisla</span></h4>
-            <p class="text-muted">Before you get started, you must login or register if you don't already have an account.</p>
+            <div align="center">
+              <img src="<?php echo base_url() ?>assets/stisla/assets/img/umk/android-chrome-192x192.png" alt="logo" height="100px" width="100px" class="shadow-light rounded-circle mb-3 mt-2">
+            
+            <h4 class="text-dark font-weight-normal">
+              <span class="font-weight-bold">Portal Skripsi <br> Sistem Informasi</span>
+            </h4>
+            </div>
+          
             <form method="POST" action="#" class="needs-validation" novalidate="">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                <div class="invalid-feedback">
-                  Please fill in your email
-                </div>
-              </div>
+                    <div class="form-group">
+                      <label for="first_name">NIM</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-id-card"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control phone-number "required autofocus>
+                        <div class="invalid-feedback">
+                         Silahkan Isi NIM Anda
+                      </div>
+                      </div>
+                    </div>
 
-              <div class="form-group">
-                <div class="d-block">
-                  <label for="password" class="control-label">Password</label>
-                </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                <div class="invalid-feedback">
-                  please fill in your password
-                </div>
-              </div>
+                    <div class="form-group">
+                      <label for="password2" class="d-block">Password</label>
+                      <div class="input-group colorpickerinput">
+                      <input id="password2" type="password" class="form-control" name="password-confirm" required>
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="btn btn-default input-group-addon" onclick="showPassword2()"><i id="icon2" class="fa fa-eye-slash"></i></span>
+                          </div>
+                        </div>
+                        <div class="invalid-feedback">
+                         Silahkan Isi Password Anda
+                      </div>
+                      </div>
+                    </div>
+               
 
               <div class="form-group">
                 <div class="custom-control custom-checkbox">
@@ -62,28 +83,23 @@
               </div>
 
               <div class="mt-5 text-center">
-                Don't have an account? <a href="auth-register.html">Create new one</a>
+                Belum Punya Akun ? <a href="register">Ayo Daftar !</a>
               </div>
             </form>
 
             <div class="text-center mt-5 text-small">
-              Copyright &copy; Your Company. Made with 💙 by Stisla
-              <div class="mt-2">
-                <a href="#">Privacy Policy</a>
-                <div class="bullet"></div>
-                <a href="#">Terms of Service</a>
-              </div>
+               Copyright &copy; 2021 <div class="bullet"></div> Design By <a style="color: #1aa9f0;">CELTIC</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="../assets/secure/assets/img/unsplash/login-bg.jpg">
+        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="<?php echo base_url() ?>assets/stisla/assets/img/umk/lobby2.jpg">
           <div class="absolute-bottom-left index-2">
             <div class="text-light p-5 pb-2">
               <div class="mb-5 pb-3">
-                <h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-                <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+                <h1 class="mb-2 display-4 font-weight-bold">Selamat Datang</h1>
+                <h5 class="font-weight-normal text-muted-transparent">Kudus, Indonesia</h5>
               </div>
-              Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
+              
             </div>
           </div>
         </div>
@@ -97,14 +113,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/secure/assets/js/stisla.js"></script>
+  <script src="<?php echo base_url() ?>assets/stisla/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
 
   <!-- Template JS File -->
-  <script src="../assets/secure/assets/js/scripts.js"></script>
-  <script src="../assets/secure/assets/js/custom.js"></script>
+  <script src="<?php echo base_url() ?>assets/stisla/assets/js/scripts.js"></script>
+  <script src="<?php echo base_url() ?>assets/stisla/assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
 </body>
 </html>
+

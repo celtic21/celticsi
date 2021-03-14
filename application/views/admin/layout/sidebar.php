@@ -1,11 +1,15 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
-      <a href="../assets/stisla/assets/stisla/pages/index.html">Stisla</a>
+    <div class="sidebar-brand mt-2" align="pull left">
+       <img src="../assets/stisla/assets/img/umk/android-chrome-192x192.png" height="65px" width="65px" alt="logo" >
+            <h6>Portal Skripsi <br> Sistem Informasi</h6>
     </div>
-    <div class="sidebar-brand sidebar-brand-sm">
-      <a href="../assets/stisla/assets/stisla/pages/index.html">St</a>
+
+    <div class="sidebar-brand sidebar-brand-sm" align="center">
+      <a href="../assets/stisla/assets/stisla/pages/index.html">PS</a>
     </div>
+    
+    <hr>
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
 
