@@ -1,7 +1,8 @@
-<!-- tutup konten -->
-</div>
-</section>
- </div>
+
+        </div>
+    </div>
+        </section>
+   </div>
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2021 <div class="bullet"></div> Design By <a style="color: #1aa9f0;">CELTIC</a>
@@ -19,19 +20,32 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
   <script src="../assets/stisla/assets/js/stisla.js"></script>
-
-  <!-- data tabel -->
-  <!-- <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script> -->
-
-  <!-- JS Libraies -->
-  <script src="../assets/stisla/node_modules/summernote/dist/summernote-bs4.js"></script>
 
   <!-- Template JS File -->
   <script src="../assets/stisla/assets/js/scripts.js"></script>
   <script src="../assets/stisla/assets/js/custom.js"></script>
 
-  <!-- Page Specific JS File -->
+  <!-- JS Libraies -->
+  <script src="../assets/stisla/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
+  <script src="../assets/stisla/node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="../assets/stisla/node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="../assets/stisla/node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="../assets/stisla/node_modules/summernote/dist/summernote-bs4.js"></script>
+  <script src="../assets/stisla/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="../assets/stisla/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="../assets/stisla/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/stisla/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="../assets/stisla/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="../assets/stisla/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../assets/stisla/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+
+  <!-- page module-->
+  <script src="../assets/stisla/assets/js/page/index-0.js"></script>
+  <script src="../assets/stisla/assets/js/page/modules-ion-icons.js"></script>
+  <script src="../assets/stisla/assets/js/page/index.js"></script>
+  <script src="../assets/stisla/assets/js/page/modules-vector-map.js"></script>
+  <script src="../assets/stisla/assets/js/page/modules-sweetalert.js"></script>
+  <script src="../assets/stisla/assets/js/page/modules-datatables.js"></script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+    .table:not(.table-sm) thead th {
+    border-bottom: none;
+    background-color: rgba(160, 171, 255, 0.58);
+    color: #666;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    }
+
+    .redtable  thead th {
+    border-bottom: none;
+    background-color: rgba(255, 114, 71, 0.5);
+    color: #666;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    }
+
+    .redtable { 
+
+    }
+
+   .j {
+   color: blue;
+   }
+
+   .r {
+   color: #c72838;
+   }
+
+   .ketiga {
+   color: rgb(200,200,0);
+   }
+  

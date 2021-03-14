@@ -12,13 +12,16 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/stisla/assets/css/style.css">
   <link rel="stylesheet" href="../assets/stisla/assets/css/components.css">
+  <link rel="stylesheet" href="../assets/stisla/assets/css/added.css">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="../assets/stisla/assets/css/ionicons.min.css">
- <!-- map -->
- <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css" integrity="sha512-RPxGl20NcAUAq1+Tfj8VjurpvkZaep2DeCgOfQ6afXSEgcvrLE6XxDG2aacvwjdyheM/bkwaLVc7kk82+mafkQ==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw==" crossorigin="anonymous" /> -->
-
-
+  <link rel="stylesheet" href="../assets/stisla/node_modules/jqvmap/dist/jqvmap.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/weathericons/css/weather-icons.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/weathericons/css/weather-icons-wind.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/summernote/dist/summernote-bs4.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../assets/stisla/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
 </head>
+
