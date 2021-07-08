@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <link rel="shorcut icon"  href="<?php echo base_url() ?>assets/stisla/assets/img/umk/favicon-16x16.png">
+  <link rel="shorcut icon"  href="<?php echo base_url() ?>assets/img/umk/favicon-16x16.png">
   <title><?=$title  ?> &mdash; <?=$si ?></title>
 
   <!-- General CSS Files -->
@@ -12,16 +12,17 @@
 
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/node_modules/selectric/public/selectric.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>vendor/stisla/node_modules/selectric/public/selectric.css">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/assets/css/style.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/assets/css/components.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/stisla/assets/css/added.css">
-</head>
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
 
-<body>
+</head>
+<body style="background:url(<?php echo base_url()?>assets/img/umk/lobby.jpg) no-repeat center center;">
   <div id="app">
     <section class="section">
       <div class="container mt-5">
@@ -31,7 +32,7 @@
               <div class="card-header"><h4>Pendaftaran</h4></div>
 
               <div class="card-body">
-                <form method="POST">
+                <form method="POST" action="#" class="needs-validation" novalidate="">
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="nim">NIM</label>
@@ -41,7 +42,8 @@
                             <i class="fas fa-id-card"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" name="nim">
+                        <input type="text" class="form-control phone-number" name="nim" required>
+                       
                       </div>
                     </div>
                     <div class="form-group col-6">
@@ -52,13 +54,14 @@
                             <i class="fas fa-user"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" name="nama">
+                        <input type="text" class="form-control phone-number" name="nama" required>
+                        
                       </div>
                     </div>
                   </div>
 
                   <div class="row">
-                  <div class="form-group col-6">
+                  <!-- <div class="form-group col-6">
                       <label class="form-label">Jenis Kelamin</label>
                       <div class="selectgroup w-100">
                         <label class="selectgroup-item">
@@ -69,34 +72,63 @@
                           <input type="radio" name="transportation" value="Perempuan" class="selectgroup-input" >
                           <span data-toggle="tooltip" data-placement="bottom" title="Perempuan" class="selectgroup-button selectgroup-button-icon"><i class="fas fa-female"></i></span>
                         </label>
+                        <div class="invalid-feedback">
+                         Silahkan Isi Password Anda
                       </div>
-                    </div>
+                      </div>
+                    </div> -->
+
+                       <div class="form-group col-6">
+                    <label for="nohp">No Hanphone</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-mobile-alt"></i>
+                          </div>
+                        </div>
+                        <input type="number" min="1" class="form-control" name="nohp" required>
+                   </div>
+                  </div>
 
                   <div class="form-group col-6">
                     <label for="alamat">Alamat</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
-                            <i class="fas fa-map-marked-alt"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control" name="alamat">
-                        <div class="invalid-feedback">
-                    </div>
+                        <input type="text" class="form-control" name="alamat" required>
+                        
                    </div>
                   </div>
                  </div>
 
                   <div class="row">
-                    <div class="form-group col-6">
-                      <label for="password" class="d-block">Password</label>
-                        <div class="input-group colorpickerinput">
-                       <input id="password1" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
-                        <div class="input-group-append">
+
+                      <div class="form-group col-6">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
                           <div class="input-group-text">
-                            <span class="btn btn-default input-group-addon" onclick="showPassword1()"><i id="icon1" class="fa fa-eye-slash"></i></span>
+                            <i class="fas fa-at"></i>
                           </div>
                         </div>
+                        <input type="email" class="form-control" name="email" required>
+                        
+                   </div>
+                  </div>
+
+                    <div class="form-group col-6">
+                      <label for="password">Password</label>
+                        <div class="input-group ">
+                       <input id="password1" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password" required>
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i onclick="showPassword1()" id="icon1" class="btn btn-sm fa fa-eye-slash"></i>
+                          </div>
+                        </div>
+                        
                       </div>
                        <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
@@ -104,22 +136,25 @@
                       </div>
                       </div>
 
-                    <div class="form-group col-6">
-                      <label for="password2" class="d-block">Konfirmasi Password</label>
-                      <div class="input-group colorpickerinput">
-                        <input id="password2" type="password" class="form-control" name="password-confirm">
-                        <div class="input-group-append">
+                   <!--  <div class="form-group col-6">
+                      <label for="password2" >Konfirmasi Password</label>
+                      <div class="input-group ">
+                        <input id="password2" type="password" class="form-control" name="password-confirm" required>
+                        <div class="input-group-prepend">
                           <div class="input-group-text">
-                            <span class="btn btn-default input-group-addon" onclick="showPassword2()"><i id="icon2" class="fa fa-eye-slash"></i></span>
+                            <i onclick="showPassword2()" id="icon2" class="btn btn-sm fa fa-eye-slash"></i>
                           </div>
                         </div>
+                        <div class="invalid-feedback">
+                         Silahkan Isi Password Anda
                       </div>
-                    </div>
-                  </div>
+                      </div>
+                    </div>-->
+                  </div> 
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                      Register
+                    <button type="submit" id="DaftarSuccess" class="btn btn-primary btn-lg btn-block">
+                      Daftar
                     </button>
                   </div>
                 </form>
@@ -140,19 +175,23 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/stisla.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
-  <script src="<?php echo base_url() ?>assets/stisla/node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/stisla/node_modules/selectric/public/jquery.selectric.min.js"></script>
+  <script src="<?php echo base_url() ?>vendor/stisla/node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="<?php echo base_url() ?>vendor/stisla/node_modules/selectric/public/jquery.selectric.min.js"></script>
 
   <!-- Template JS File -->
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/scripts.js"></script>
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/custom.js"></script>
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/added.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/page/auth-register.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/page/auth-register.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
 </body>
 </html>
 

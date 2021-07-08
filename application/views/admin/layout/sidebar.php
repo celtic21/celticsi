@@ -1,6 +1,6 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
-    <div class="sidebar-brand mt-2" align="pull left">
+    <div class="sidebar-brand mt-2">
        <img src="../assets/stisla/assets/img/umk/android-chrome-192x192.png" height="65px" width="65px" alt="logo" >
             <h6>Portal Skripsi <br> Sistem Informasi</h6>
     </div>
