@@ -26,17 +26,17 @@
         </a>
         <ul class="dropdown-menu">
          <li <?php echo $this->uri->segment(3) == 'daftar_skripsi' ? 'class="active"' : '' ?>>
-         <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_skripsi') ?>"><i class="fas fa-file-alt"></i>
+         <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_skripsi') ?>"><i class="fas fa-file"></i>
             <span>Daftar Skripsi</span>
           </a>
         </li>
          <li <?php echo $this->uri->segment(3) == 'daftar_seminar' ? 'class="active"' : '' ?>>
-           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_seminar') ?>"><i class="fas fa-file-alt"></i> 
+           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_seminar') ?>"><i class="fas fa-file"></i> 
             <span>Daftar Seminar</span>
           </a>
         </li>
           <li <?php echo $this->uri->segment(3) == 'daftar_sidang' ? 'class="active"' : '' ?>>
-           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_sidang') ?>"><i class="fas fa-file-alt"></i> 
+           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_sidang') ?>"><i class="fas fa-file"></i> 
             <span>Daftar Sidang</span>
           </a>
         </li>
@@ -56,12 +56,12 @@
           </a>
         </li>
          <li <?php echo $this->uri->segment(3) == 'pengajuan_judul' ? 'class="active"' : '' ?>>
-           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-alt"></i> 
+           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-list"></i> 
             <span>Daftar Judul Skripsi</span>
           </a>
         </li>
           <li <?php echo $this->uri->segment(3) == 'upload_manuskrip' ? 'class="active"' : '' ?>>
-           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-alt"></i> 
+           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-upload"></i> 
             <span>Upload Manuskrip</span>
           </a>
         </li>
@@ -135,6 +135,15 @@
   <section class="section">
     <div class="section-header">
       <h1><?php echo $title ?></h1>
+      <div class="section-header-breadcrumb">
+        <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+  <em>&nbsp;Dark Mode !</em>
+</div>
+      </div>
     </div>
     <div class="section-body">
     

@@ -1,7 +1,7 @@
 <!-- ambil semua akses yg ada ditable -->
 <?php 
 $sql ="SELECT * FROM tauth where Iduser =  ".$this->session->userdata('UserId'); 
-$akses = $this->db->query($sql);
+$auth = $this->db->query($sql);
 
 // echo "<pre>";
 // print_r ($query->result());
@@ -33,35 +33,6 @@ $level = $this->db->query($sql1)->row_array();
           <span>Halaman Utama</span>
         </a>      
       </li>
-
-      
-<li class="menu-header">Hak Akses</li>
- <?php foreach ($akses->result() as $key => $akses) {
-      ?>
-      <li <?php echo $this->uri->segment(3) == '$akses->Namalevel' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('secure/akses/auth/'.$akses->Namalevel) ?>">
-
-          <?php 
-          if ($akses->Namalevel=='dosen') { ?>
-            <i class="fas fa-user-tie"></i>
-          <?php
-          } elseif ($akses->Namalevel=='koordinator') { ?>
-            <i class="fas fa-user-cog"></i>
-          <?php
-          }elseif ($akses->Namalevel=='kaprodi') { ?>
-            <i class="fas fa-database"></i>
-          <?php
-          }elseif ($akses->Namalevel=='operator') { ?>
-            <i class="fas fa-user-astronaut"></i>
-          <?php
-          }
-           ?>
-
-          <span><?php echo $akses->Namalevel ?></span>
-        </a>      
-      </li>
-        </li>
- <?php } ?>
 
    
 
@@ -158,10 +129,29 @@ $level = $this->db->query($sql1)->row_array();
         </li>
 
         <li <?php echo $this->uri->segment(2) == 'laporan' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-fire"></i> 
+        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-chart-bar"></i> 
           <span>Laporan</span>
         </a>      
       </li>
+
+       <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'profil' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-user-circle"></i>
+          <span>Profil</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(2) == 'profil' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/profil') ?>"><i class="fas fa-id-card-alt"></i>
+            <span>Data Diri</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(2) == 'add' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/dasbor') ?>"><i class="fas fa-lock"></i> 
+            <span>Ubah Password</span>
+          </a>
+        </li>
+       </ul>
+     </li>
       
 
 
@@ -181,6 +171,25 @@ $level = $this->db->query($sql1)->row_array();
         </a>      
       </li>
 
+        <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'profil' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-user-circle"></i>
+          <span>Profil</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(2) == 'profil' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/profil') ?>"><i class="fas fa-id-card-alt"></i>
+            <span>Data Diri</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(2) == 'add' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/dasbor') ?>"><i class="fas fa-lock"></i> 
+            <span>Ubah Password</span>
+          </a>
+        </li>
+       </ul>
+     </li>
+
   <?php } ?>
 
 
@@ -189,17 +198,35 @@ $level = $this->db->query($sql1)->row_array();
 
 
       <li <?php echo $this->uri->segment(2) == 'monitoring' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('secure/monitoring') ?>"><i class="fas fa-fire"></i> 
+        <a class="nav-link" href="<?php echo base_url('secure/monitoring') ?>"><i class="fas fa-tv"></i> 
           <span>Monitoring</span>
         </a>      
       </li>
 
       <li <?php echo $this->uri->segment(2) == 'laporan' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-fire"></i> 
+        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-chart-bar"></i> 
           <span>Laporan</span>
         </a>      
       </li>
 
+       <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'profil' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-user-circle"></i>
+          <span>Profil</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(2) == 'profil' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/profil') ?>"><i class="fas fa-id-card-alt"></i>
+            <span>Data Diri</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(2) == 'add' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/dasbor') ?>"><i class="fas fa-lock"></i> 
+            <span>Ubah Password</span>
+          </a>
+        </li>
+       </ul>
+     </li>
 
   <?php } ?>
 
@@ -231,12 +258,70 @@ $level = $this->db->query($sql1)->row_array();
         </li>
         </ul>
         </li>
+
+        <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'profil' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-user-circle"></i>
+          <span>Profil</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(2) == 'profil' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/profil') ?>"><i class="fas fa-id-card-alt"></i>
+            <span>Data Diri</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(2) == 'add' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/dasbor') ?>"><i class="fas fa-lock"></i> 
+            <span>Ubah Password</span>
+          </a>
+        </li>
+       </ul>
+     </li>
   <?php } ?>     
 
-       </ul>
-         
+ <?php 
+  if(count($auth->result())>1){
+?>
+  <li class="menu-header">Hak Akses</li>
+
+<?php
+    foreach ($auth->result() as $key => $akses) {
+      $active = $level['UserLevelAktif'] == $akses->Namalevel ? 'class="active"' : '';
+   
+?>
+      <li <?php echo $active ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/akses/auth/'.$akses->Namalevel) ?>">
+
+          <?php 
+          if ($akses->Namalevel=='dosen') { ?>
+            <i class="fas fa-user-tie"></i>
+          <?php
+          } elseif ($akses->Namalevel=='koordinator') { ?>
+            <i class="fas fa-user-cog"></i>
+          <?php
+          }elseif ($akses->Namalevel=='kaprodi') { ?>
+            <i class="fas fa-chalkboard-teacher"></i>
+          <?php
+          }elseif ($akses->Namalevel=='operator') { ?>
+            <i class="fas fa-user-astronaut"></i>
+          <?php
+          }
+           ?>
+
+          <span><?php echo $akses->Namalevel ?></span>
+        </a>      
+      </li>
+<?php
+  }
+      ?>
+      
+        </li>
+ <?php } ?>
+       </ul>        
  </aside>
 </div>
+
+
 
 
 

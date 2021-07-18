@@ -59,4 +59,3 @@ $route['login'] = 'home/login';
 $route['secure'] = 'home/secure';
 $route['logout'] = 'home/logout';
 $route['mhs'] = 'mhs/dasbor';
-

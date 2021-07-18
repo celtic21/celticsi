@@ -35,7 +35,7 @@ class Secure_login
 			// echo "<pre>";
 			// print_r ($cek);
 			// exit();
-			redirect(base_url('secure/dasbor'),'refresh');
+			redirect(base_url('secure/dasbor/'.$level),'refresh');
 		}else{
 			//jika tidak ada data
 			$this->CI->session->set_flashdata('salah', 'Username Atau Password salah');

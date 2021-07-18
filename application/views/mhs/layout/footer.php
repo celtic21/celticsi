@@ -20,12 +20,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/stisla/assets/js/stisla.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/stisla.js"></script>
 
-  <!-- Template JS File -->
-  <script src="<?php echo base_url() ?>vendor/stisla/assets/js/scripts.js"></script>
-  <script src="<?php echo base_url() ?>vendor/stisla/assets/js/custom.js"></script>
-  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
+  
 
   <!-- JS Libraies -->
   <script src="<?php echo base_url() ?>vendor/stisla/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
@@ -48,14 +45,45 @@
       let fileName = $(this).val().split('\\').pop();
       $(this).next('.custom-file-label').addClass("selected").html(fileName);
    });
+
+   const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }    
+}
+toggleSwitch.addEventListener('change', switchTheme, false);
+   function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark'); //add this
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light'); //add this
+    }    
+}const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
 </script>
 
+  <!-- Template JS File -->
+  <script src="<?php echo base_url() ?>vendor/stisla/assets/js/scripts.js"></script>
+  <script src="<?php echo base_url() ?>vendor/stisla/assets/js/custom.js"></script>
+  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
 
+  
   <!-- page module-->
   <script src="<?php echo base_url() ?>assets/js/page/index-0.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/modules-ion-icons.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/index.js"></script>
-  <script src="<?php echo base_url() ?>stisla/assets/js/page/modules-vector-map.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/modules-datatables.js"></script>
 
 
