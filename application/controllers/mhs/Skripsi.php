@@ -1,17 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pengajuan_judul extends CI_Controller {
+class Skripsi extends CI_Controller {
 
 	public function index()
 	{
+		
+	}
+
+	public function Judul_skripsi()
+	{
 		$data = array ( 'title' 	=> 'Pengajuan Judul',
- 						'isi'		=> 'mhs/Pengajuan_judul/list'
+ 						'isi'		=> 'mhs/skripsi/judul_skripsi'
  					);
  		$this->load->view('mhs/layout/wrapper', $data, FALSE);
 	}
 
 }
 
-/* End of file Pengajuan_judul.php */
-/* Location: ./application/controllers/mhs/Pengajuan_judul.php */
+/* End of file Skripsi.php */
+/* Location: ./application/controllers/mhs/Skripsi.php */

@@ -1,3 +1,4 @@
+
   function showPassword1() {
 	var x = document.getElementById("password1");
 	if (x.type === "password") {
@@ -23,6 +24,66 @@
 		$('#icon2').addClass('fa-eye-slash');
 	}
 }
+
+function daftar_form() {
+  let nama = document.forms["fdaftar"]["nama"].value;
+  let alamat = document.forms["fdaftar"]["alamat"].value;
+  let nim = document.forms["fdaftar"]["nim"].value;
+  let nohp = document.forms["fdaftar"]["nohp"].value;
+  let email = document.forms["fdaftar"]["email"].value;
+  let password= document.forms["fdaftar"]["password"].value;
+  if (nim == ""){
+
+     //alert("Nama tidak boleh kosong");
+    //console.log("ini")
+    Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Nim Harus di isi ya'
+        });
+    return false;
+  }else if (alamat == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'alamat Harus di isi ya'
+        });
+    return false;
+  }else if (nama == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Nama Harus di isi ya'
+        });
+    return false;
+  }else if (nohp == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'NoHp Harus di isi ya'
+        });
+    return false;
+  }else if (password == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'password Harus di isi ya'
+        });
+    return false;
+  }else if (email == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Email Harus di isi ya'
+        });
+    return false;
+  } 
+
+}
+
+
+
+
 
 $(document).ready(function(){
         $("#basic").click(function(){
@@ -314,5 +375,7 @@ $(document).ready(function(){
         })
         });
     });
+
+
 
 "use strict";

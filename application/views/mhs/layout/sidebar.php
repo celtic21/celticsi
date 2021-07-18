@@ -1,3 +1,4 @@
+
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand mt-2">
@@ -11,27 +12,101 @@
     
     <hr>
     <ul class="sidebar-menu">
-      <li class="menu-header">Dashboard</li>
-
       <li <?php echo $this->uri->segment(2) == 'dasbor' ? 'class="active"' : '' ?>>
         <a class="nav-link" href="<?php echo base_url('mhs/dasbor') ?>"><i class="fas fa-fire"></i> 
           <span>Halaman Utama</span>
         </a>      
       </li>
 
-      <li class="menu-header">Skripsi</li>
-      <li <?php echo $this->uri->segment(2) == 'daftar_skripsi' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('mhs/daftar_skripsi') ?>"><i class="fas fa-file-alt"></i> 
-          <span>Daftar Skripsi</span>
-        </a>      
-      </li>   
-      <li <?php echo $this->uri->segment(2) == 'pengajuan_judul' ? 'class="active"' : '' ?>>
-        <a class="nav-link" href="<?php echo base_url('mhs/pengajuan_judul') ?>"><i class="fas fa-font"></i> 
-          <span>Pengajuan judul</span>
-        </a>      
-      </li>  
+<!-- Pendaftaran -->
+        <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'pendaftaran' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-file-alt"></i>
+          <span>Pendaftaran</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'daftar_skripsi' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_skripsi') ?>"><i class="fas fa-file-alt"></i>
+            <span>Daftar Skripsi</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'daftar_seminar' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_seminar') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Daftar Seminar</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'daftar_sidang' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/pendaftaran/daftar_sidang') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Daftar Sidang</span>
+          </a>
+        </li>
+        </ul>
+        </li>
 
-      <li class="menu-header">Master</li>
+<!-- Skripsi -->
+        <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'skripsi' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Skripsi</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'judul_skripsi' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('mhs/skripsi/judul_skripsi') ?>"><i class="fas fa-font"></i>
+            <span>Judul Skripsi</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'pengajuan_judul' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Daftar Judul Skripsi</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'upload_manuskrip' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Upload Manuskrip</span>
+          </a>
+        </li>
+        </ul>
+        </li>
+
+  <!-- Bimbingan -->
+      <li <?php echo $this->uri->segment(2) == 'bimbingan' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('mhs/bimbingan') ?>"><i class="fas fa-scroll"></i> 
+          <span>Bimbingan</span>
+        </a>      
+      </li>
+
+      <li <?php echo $this->uri->segment(2) == 'bimbingan' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('mhs/jadwal_bimbingan') ?>"><i class="fas fa-clock"></i> 
+          <span>Jadwal Bimbingan</span>
+        </a>      
+      </li>
+
+
+      <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'nilai' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-star"></i>
+          <span>Nilai Sidang</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'seminar_proposal' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('mhs/seminar_proposal') ?>"><i class="fas fa-font"></i>
+            <span>Seminar Proposal</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'sidang_skripsi' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/sidang_skripsi') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Sidang Skripsi</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'sidang_ulang' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('mhs/sidang_ulang') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Sidang Ulang</span>
+          </a>
+        </li>
+        </ul>
+        </li>    
+
+      
       <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'profil' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
           <i class="fas fa-user-circle"></i>
@@ -62,5 +137,4 @@
       <h1><?php echo $title ?></h1>
     </div>
     <div class="section-body">
-     <h2 class="section-title">Advanced Forms</h2>
-     <p class="section-lead">We provide advanced input fields, such as date picker, color picker, and so on.</p>
+    

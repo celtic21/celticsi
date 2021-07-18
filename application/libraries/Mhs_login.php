@@ -30,8 +30,8 @@ class Mhs_login
 			redirect(base_url('mhs/dasbor'),'refresh');
 		}else{
 			//jika tidak ada data
-			$this->CI->session->set_flashdata('warning', 'Username Atau Password salah');
-			redirect(base_url('home/login'),'refresh');
+			$this->CI->session->set_flashdata('salah', 'Username Atau Password salah');
+			redirect(base_url('home'),'refresh');
 		}
 	}
 	

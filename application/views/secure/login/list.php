@@ -29,29 +29,46 @@
 
             <div class="card card-primary">
               <div style="text-align: center;" class="card-header" ><h4 >Login</h4></div>
+<?php 
+//notifikasi error
+echo validation_errors('<div class="alert alert-warning">','</div>');
 
+//notifikasi gagal login
+if($this->session->flashdata('salah')) {
+  echo '<div class="alert alert-danger">';
+  echo $this->session->flashdata('salah');
+  echo '</div>';
+}
+
+//notifikasi logout
+if($this->session->flashdata('sukses')) {
+  echo '<div class="alert alert-success">';
+  echo $this->session->flashdata('sukses');
+  echo '</div>';
+}
+ ?>
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <form name="flogin" action="<?= base_url('home/secure'); ?>" onsubmit="return login_form()"  method="POST">
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                    <label for="username">Username</label>
+                    <input id="username" type="text" class="form-control" name="username" tabindex="1" required="">
                     <div class="invalid-feedback">
-                      Please fill in your email
+                      Username Harus Diisi
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
-                      <div class="float-right">
+                      <!-- <div class="float-right">
                         <a href="auth-forgot-password.html" class="text-small">
                           Forgot Password?
                         </a>
-                      </div>
+                      </div> -->
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2">
                     <div class="invalid-feedback">
-                      please fill in your password
+                      Password Harus Diisi
                     </div>
                   </div>
 

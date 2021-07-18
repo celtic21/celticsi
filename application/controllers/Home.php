@@ -14,21 +14,10 @@ class Home extends CI_Controller {
 		//validasi input
 		$valid = $this->form_validation;
 
-		$valid->set_rules('MhsNama','MhsNim','nim','required',
-			array('required'   => '%s harus diisi'));
+		$this->form_validation->set_rules('nim', 'nim', 'required',
+			array(	'required'	=> '%s harus diisi'));
 
-		$valid->set_rules('email','Email','required|valid_email|is_unique[tmhs.MhsEmail]',
-			array('required'   => '%s harus diisi',
-				'valid_email'=> '%s tidak valid',
-				'is_unique'  => '%s sudah terdaftar'));
-
-		$valid->set_rules('password','MhsPassword','required',
-			array('required' => '%s harus diisi'));
-
-		$valid->set_rules('nohp','nohp','required|min_length[1]|max_length[13]',
-			array('required'   => '%s harus diisi',
-				  'min_length' => '%s minimal 11 karakter',
-				  'max_length' => '%s maksimal 13 karakter'));
+	
  
 
 		if($valid->run()===FALSE){
@@ -79,19 +68,40 @@ class Home extends CI_Controller {
 		//end validasi
 
 		$data = array ( 'title' => 'Halaman Login');
-		$this->load->view('home', $data, FALSE);
+		$this->load->view('home/list', $data, FALSE);
 	}
 
 	public function secure()
 	{
+		//validasi
+		$this->form_validation->set_rules('username', 'username', 'required',
+			array(	'required'	=> '%s harus diisi'));
+
+		$this->form_validation->set_rules('password', 'Password', 'required',
+			array(	'required'	=> '%s harus diisi'));
+
+		if($this->form_validation->run())
+		{
+			$username 	= $this->input->post('username');
+			$password 	= $this->input->post('password');
+			//proses ke login mhs
+			$this->secure_login->login($username,$password);
+		}
+		//end validasi
+
 		$data = array ( 'title' 	=> 'Login',
 						'si'		=> 'Skripsi UMK');
  		$this->load->view('secure/login/list', $data, FALSE);
 	}
 
-	public function logout()
+	public function mhs_logout()
 	{
 		$this->mhs_login->logout();
+	}
+
+	public function s_logout()
+	{
+		$this->secure_login->logout();
 	}
 
 }

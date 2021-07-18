@@ -84,4 +84,35 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 // fvgrv
-defined('pembimbing1')      OR define('pembimbing1', 1);
+
+// TAMBAHAN
+
+//daftar skripsi
+defined('Menunggu')      OR define('Menunggu', 0);
+defined('Disetujui')     OR define('Disetujui', 1);
+defined('Perbaikan')     OR define('Perbaikan', 2);
+
+//status akhir
+defined('Daftar')      	 OR define('Daftar', 0);
+defined('Proses')     	 OR define('Proses', 1);
+defined('Lulus')     	 OR define('Lulus', 2);
+defined('Gagal Lanjut')  OR define('Gagal Lanjut', 3);
+defined('Ganti Dosbing') OR define('Ganti Dosbing', 4);
+defined('Gagal Total')   OR define('Gagal Total', 5);
+
+//tuser level
+defined('Operator')     		OR define('Operator', 0);
+defined('Dosen')      			OR define('Dosen', 1);
+
+//dosbing level
+defined('Pembimbing1')     		OR define('Pembimbing1', 0);
+defined('Pembimbing2')     		OR define('Pembimbing2', 1);
+
+//hasil sempro
+defined('Lolos')     	 OR define('Lolos', 0);
+defined('Ulang')     	 OR define('Ulang', 1);
+defined('Gagal')     	 OR define('Gagal', 2);
+
+//sempro revisi
+defined('Tanpa Revisi')     	 OR define('Tanpa Revisi', 0);
+defined('Dengan Revisi')     	 OR define('Dengan Revisi', 1);

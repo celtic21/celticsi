@@ -25,6 +25,7 @@
   <!-- Template JS File -->
   <script src="<?php echo base_url() ?>vendor/stisla/assets/js/scripts.js"></script>
   <script src="<?php echo base_url() ?>vendor/stisla/assets/js/custom.js"></script>
+  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
 
   <!-- JS Libraies -->
   <script src="<?php echo base_url() ?>vendor/stisla/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
@@ -41,12 +42,22 @@
   <script src="<?php echo base_url() ?>vendor/stisla/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
   <script src="<?php echo base_url() ?>vendor/stisla/node_modules/dropzone/dist/min/dropzone.min.js"></script>
 
+<script>
+      // untuk file input
+   $(".custom-file-input").on('change', function() {
+      let fileName = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(fileName);
+   });
+</script>
+
+
   <!-- page module-->
   <script src="<?php echo base_url() ?>assets/js/page/index-0.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/modules-ion-icons.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/index.js"></script>
   <script src="<?php echo base_url() ?>stisla/assets/js/page/modules-vector-map.js"></script>
-  <script src="<?php echo base_url() ?>assets/js/page/modules-sweetalert.js"></script>
   <script src="<?php echo base_url() ?>assets/js/page/modules-datatables.js"></script>
+
+
 </body>
 </html>

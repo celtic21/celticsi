@@ -36,12 +36,12 @@
 
 <?php 
 //notifikasi error
-echo validation_errors('<div class="alert alert-danger">','</div>');
+echo validation_errors('<div class="alert alert-warning">','</div>');
 
 //notifikasi gagal login
-if($this->session->flashdata('warning')) {
-  echo '<div class="alert alert-warning">';
-  echo $this->session->flashdata('warning');
+if($this->session->flashdata('salah')) {
+  echo '<div class="alert alert-danger">';
+  echo $this->session->flashdata('salah');
   echo '</div>';
 }
 
@@ -54,7 +54,7 @@ if($this->session->flashdata('sukses')) {
 
 
  ?>  </div>
-          <form action="<?= base_url('home/login'); ?>" method="POST" class="needs-validation">
+          <form name="flogin" action="<?= base_url('home/login'); ?>" onsubmit="return login_form()"  method="POST">
             <!-- <form method="POST" action="#" class="needs-validation" novalidate=""> -->
                     <div class="form-group">
                       <label for="nim">NIM</label>
@@ -64,7 +64,7 @@ if($this->session->flashdata('sukses')) {
                             <i class="fas fa-id-card"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number " name="nim" required>
+                        <input type="text" class="form-control phone-number " name="nim" >
                         <div class="invalid-feedback">
                          Silahkan Isi NIM Anda
                       </div>
@@ -74,7 +74,7 @@ if($this->session->flashdata('sukses')) {
                     <div class="form-group">
                       <label for="password2" class="d-block">Password</label>
                       <div class="input-group">
-                      <input id="password2" type="password" class="form-control" name="password" required>
+                      <input id="password2" type="password" class="form-control" name="password">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
                             <div class="btn btn-sm" onclick="showPassword2()"><i id="icon2" class="fa fa-eye-slash"></i></div>
@@ -141,6 +141,7 @@ if($this->session->flashdata('sukses')) {
   <!-- Template JS File -->
   <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>
   <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
 
   <!-- Page Specific JS File -->
 </body>

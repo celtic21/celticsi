@@ -12,14 +12,15 @@
 
    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
-
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?php echo base_url() ?>vendor/stisla/node_modules/selectric/public/selectric.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
+
+
+
 
 </head>
 <body style="background:url(<?php echo base_url()?>assets/img/umk/lobby.jpg) no-repeat center center;">
@@ -32,7 +33,8 @@
               <div class="card-header"><h4>Pendaftaran</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <form  name="fdaftar" action="<?= base_url('home/register'); ?>" onsubmit="return daftar_form()"   method="POST">
+
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="nim">NIM</label>
@@ -42,7 +44,7 @@
                             <i class="fas fa-id-card"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" name="nim" required>
+                        <input type="text" class="form-control phone-number" name="nim" >
                        
                       </div>
                     </div>
@@ -54,7 +56,7 @@
                             <i class="fas fa-user"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" name="nama" required>
+                        <input type="text" class="form-control phone-number" name="nama">
                         
                       </div>
                     </div>
@@ -86,7 +88,7 @@
                             <i class="fas fa-mobile-alt"></i>
                           </div>
                         </div>
-                        <input type="number" min="1" class="form-control" name="nohp" required>
+                        <input type="number" min="1" class="form-control" name="nohp">
                    </div>
                   </div>
 
@@ -98,7 +100,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control" name="alamat" required>
+                        <input type="text" class="form-control" name="alamat" >
                         
                    </div>
                   </div>
@@ -114,7 +116,7 @@
                             <i class="fas fa-at"></i>
                           </div>
                         </div>
-                        <input type="email" class="form-control" name="email" required>
+                        <input type="email" class="form-control" name="email">
                         
                    </div>
                   </div>
@@ -122,7 +124,7 @@
                     <div class="form-group col-6">
                       <label for="password">Password</label>
                         <div class="input-group ">
-                       <input id="password1" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password" required>
+                       <input id="password1" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
                             <i onclick="showPassword1()" id="icon1" class="btn btn-sm fa fa-eye-slash"></i>
@@ -153,13 +155,19 @@
                   </div> 
 
                   <div class="form-group">
-                    <button type="submit" id="DaftarSuccess" class="btn btn-primary btn-lg btn-block">
+                    <button type="submit"  class="btn btn-primary btn-lg btn-block">
                       Daftar
                     </button>
+                    <div align="center">
+                      <br>
+                      <label>Sudah Punya akun ? <a href="home">Ayo Login !</a></label>
+                    </div>
+                    
                   </div>
                 </form>
               </div>
             </div>
+           
             <div class="simple-footer">
               Copyright &copy; 2021 <div class="bullet"></div> Design By <a style="color: #1aa9f0;">CELTIC</a>
             </div>
@@ -184,13 +192,10 @@
   <!-- Template JS File -->
   <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>
   <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
 
   <!-- Page Specific JS File -->
   <script src="<?php echo base_url() ?>assets/js/page/auth-register.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
 </body>
 </html>

@@ -1,39 +1,250 @@
- <div class="main-sidebar">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
-          </div>
-          <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
-          </div>
-          <ul class="sidebar-menu">
-              <li class="menu-header">Dashboard</li>
-             
+<!-- ambil semua akses yg ada ditable -->
+<?php 
+$sql ="SELECT * FROM tauth where Iduser =  ".$this->session->userdata('UserId'); 
+$akses = $this->db->query($sql);
 
-              <li><a class="nav-link" href="<?php echo base_url('secure/dasbor') ?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+// echo "<pre>";
+// print_r ($query->result());
+// exit();
+?>
 
-              <li class="menu-header">Master</li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>User</span></a>
-                <ul class="dropdown-menu">
-                   <li><a class="nav-link" href="<?php echo base_url('secure/admin') ?>"><i class="far fa-square"></i> <span>Data User</span></a></li>
-                   <li><a class="nav-link" href="<?php echo base_url('secure/admin/add') ?>"><i class="far fa-square"></i> <span>Tambah User</span></a></li>
-                </ul>
-              </li>
+<!-- ambil level yang aktif -->
+<?php 
+$sql1 ="SELECT UserLevelAktif FROM tuser where UserId =  ".$this->session->userdata('UserId'); 
+$level = $this->db->query($sql1)->row_array();
+
+ ?>
+
+<div class="main-sidebar">
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand mt-2">
+       <img src="<?php echo base_url() ?>assets/img/umk/android-chrome-192x192.png" height="65px" width="65px" alt="logo" >
+            <h6>Portal Skripsi <br> Sistem Informasi</h6>
+    </div>
+
+    <div class="sidebar-brand sidebar-brand-sm" align="center">
+      <a href="<?php echo base_url() ?>assets/stisla/pages/index.html">PS</a>
+    </div>
+    
+    <hr>
+    <ul class="sidebar-menu">
+      <li <?php echo $this->uri->segment(2) == 'dasbor' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/dasbor/'.$level['UserLevelAktif']) ?>"><i class="fas fa-fire"></i> 
+          <span>Halaman Utama</span>
+        </a>      
+      </li>
+
+      
+<li class="menu-header">Hak Akses</li>
+ <?php foreach ($akses->result() as $key => $akses) {
+      ?>
+      <li <?php echo $this->uri->segment(3) == '$akses->Namalevel' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/akses/auth/'.$akses->Namalevel) ?>">
+
+          <?php 
+          if ($akses->Namalevel=='dosen') { ?>
+            <i class="fas fa-user-tie"></i>
+          <?php
+          } elseif ($akses->Namalevel=='koordinator') { ?>
+            <i class="fas fa-user-cog"></i>
+          <?php
+          }elseif ($akses->Namalevel=='kaprodi') { ?>
+            <i class="fas fa-database"></i>
+          <?php
+          }elseif ($akses->Namalevel=='operator') { ?>
+            <i class="fas fa-user-astronaut"></i>
+          <?php
+          }
+           ?>
+
+          <span><?php echo $akses->Namalevel ?></span>
+        </a>      
+      </li>
+        </li>
+ <?php } ?>
+
+   
 
 
-            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-              </a>
-            </div>
-        </aside>
-      </div>
 
-  <!-- masuk konten -->
-       <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1><?php echo $title ?></h1>
-          </div>
-          <div class="section-body">
+<li class="menu-header">MENU <?php echo $level['UserLevelAktif'] ?></li>
+
+<!-- Koordinator -->
+<?php if ($level['UserLevelAktif'] == 'koordinator') { ?>
+   
+
+       <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'master' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-database"></i>
+          <span>Master</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'dosen' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/master/dosen') ?>"><i class="fas fa-user-tie"></i>
+            <span>Dosen</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'operator' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/master/operator') ?>"><i class="fas fa-user-astronaut"></i> 
+            <span>Operator</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'mahasiswa' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/master/mahasiswa') ?>"><i class="fas fa-user-graduate"></i> 
+            <span>Mahasiswa</span>
+          </a>
+        </li>
+        </ul>
+        </li>
+
+      <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'skripsi' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Skripsi</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'judul_skripsi' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/skripsi/judul_skripsi') ?>"><i class="fas fa-font"></i>
+            <span>Judul Skripsi</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'pengajuan_judul' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Daftar Judul Skripsi</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'upload_manuskrip' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/skripsi/pengajuan_judul') ?>"><i class="fas fa-file-upload"></i> 
+            <span>Upload Manuskrip</span>
+          </a>
+        </li>
+        </ul>
+        </li>
+
+        <li <?php echo $this->uri->segment(3) == 'bagi_dosen' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/bimbingan/bagi_dosen') ?>"><i class="fas fa-user-tie"></i> 
+          <span>Bagi Pembimbing</span>
+        </a>      
+      </li>
+
+        <li <?php echo $this->uri->segment(2) == 'jadwal' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/jadwal') ?>"><i class="fas fa-calendar-alt"></i> 
+          <span>Jadwal seminar/sidang</span>
+        </a>      
+      </li>
+
+        <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'skripsi' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-star"></i>
+          <span>Nilai Sidang</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'seminar' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/nilai/seminar') ?>"><i class="fas fa-font"></i>
+            <span>Seminar Proposal</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'sidang' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/nilai/sidang') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Sidang Skripsi</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'sidang_ulang' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/nilai/sidang_ulang') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Sidang Ulang</span>
+          </a>
+        </li>
+        </ul>
+        </li>
+
+        <li <?php echo $this->uri->segment(2) == 'laporan' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-fire"></i> 
+          <span>Laporan</span>
+        </a>      
+      </li>
+      
+
+
+<?php } ?>
+
+
+<!-- Dosen -->
+<?php if ($level['UserLevelAktif'] == 'dosen') { ?>
+      <li <?php echo $this->uri->segment(3) == 'mhs' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/bimbingan/mhs') ?>"><i class="fas fa-scroll"></i> 
+          <span>Bimbingan</span>
+        </a>      
+      </li>
+      <li <?php echo $this->uri->segment(3) == 'bimbingan' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/bimbingan/dasbor') ?>"><i class="fas fa-scroll"></i> 
+          <span>Mahasiswa Bimbingan</span>
+        </a>      
+      </li>
+
+  <?php } ?>
+
+
+<!-- Kaprodi -->
+<?php if ($level['UserLevelAktif'] == 'kaprodi') { ?>
+
+
+      <li <?php echo $this->uri->segment(2) == 'monitoring' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/monitoring') ?>"><i class="fas fa-fire"></i> 
+          <span>Monitoring</span>
+        </a>      
+      </li>
+
+      <li <?php echo $this->uri->segment(2) == 'laporan' ? 'class="active"' : '' ?>>
+        <a class="nav-link" href="<?php echo base_url('secure/laporan') ?>"><i class="fas fa-fire"></i> 
+          <span>Laporan</span>
+        </a>      
+      </li>
+
+
+  <?php } ?>
+
+
+<!-- Operator -->
+  <?php if ($level['UserLevelAktif'] == 'operator') { ?>
+ 
+
+      <li class="nav-item dropdown <?php echo $this->uri->segment(2) == 'berkas' || $this->uri->segment(2) == 'add' ? 'active' : '' ?>">
+        <a href="" class="nav-link has-dropdown" data-toggle="dropdown">
+          <i class="fas fa-tasks"></i>
+          <span>Cek Berkas</span>
+        </a>
+        <ul class="dropdown-menu">
+         <li <?php echo $this->uri->segment(3) == 'pendaftaran' ? 'class="active"' : '' ?>>
+         <a class="nav-link" href="<?php echo base_url('secure/berkas/pendaftaran') ?>"><i class="fas fa-file-alt"></i>
+            <span>Pendaftaran</span>
+          </a>
+        </li>
+         <li <?php echo $this->uri->segment(3) == 'seminar' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/berkas/seminar') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Seminar Proposal</span>
+          </a>
+        </li>
+          <li <?php echo $this->uri->segment(3) == 'sidang' ? 'class="active"' : '' ?>>
+           <a class="nav-link" href="<?php echo base_url('secure/berkas/sidang') ?>"><i class="fas fa-file-alt"></i> 
+            <span>Sidang Skripsi</span>
+          </a>
+        </li>
+        </ul>
+        </li>
+  <?php } ?>     
+
+       </ul>
+         
+ </aside>
+</div>
+
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1><?php echo $title ?></h1>
+    </div>
+    <div class="section-body">
+    

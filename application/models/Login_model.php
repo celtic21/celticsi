@@ -17,11 +17,14 @@ class  Login_model extends CI_Model {
 
 	public function secure_login($username,$password)
 	{
+// echo "<pre>";
+// print_r ($username);
+// exit();
 		$this->db->select('*');
-		$this->db->from('tdosen');
-		$this->db->where(array('username' => $username,
-							   'password' => sha1($password)));
-		$this->db->order_by('id','desc');
+		$this->db->from('tuser');
+		$this->db->where(array('UserUsername' => $username,
+							   'UserPassword' => sha1($password)));
+		$this->db->order_by('UserId','desc');
 		$query = $this->db->get();
 		return $query->row();
 	}
