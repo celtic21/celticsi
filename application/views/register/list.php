@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
 
 
-
-
 </head>
 <body style="background:url(<?php echo base_url()?>assets/img/umk/lobby.jpg) no-repeat center center;">
   <div id="app">
@@ -44,7 +42,7 @@
                             <i class="fas fa-id-card"></i>
                           </div>
                         </div>
-                        <input type="text" class="form-control phone-number" name="nim" >
+                        <input type="text" class="form-control number" name="nim" >
                        
                       </div>
                     </div>
@@ -155,12 +153,12 @@
                   </div> 
 
                   <div class="form-group">
-                    <button type="submit"  class="btn btn-primary btn-lg btn-block">
+                    <button type="submit"   class="btn btn-primary btn-lg btn-block">
                       Daftar
                     </button>
                     <div align="center">
                       <br>
-                      <label>Sudah Punya akun ? <a href="home">Ayo Login !</a></label>
+                      <label>Sudah Punya akun ? <a href="login">Ayo Login !</a></label>
                     </div>
                     
                   </div>
@@ -176,6 +174,7 @@
       </div>
        </section>
   </div>
+
 
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

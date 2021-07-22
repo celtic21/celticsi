@@ -47,9 +47,9 @@ class Secure_login
 	public function cek_login()
 	{
 		//periksa apakah session sudah ada atau belum
-		if ($this->CI->session->userdata('Username') == "") 
+		if ($this->CI->session->userdata('UserUsername') == "") 
 		{
-			$this->CI->session->set_flashdata('warning', 'Anda Belum Login');
+			$this->CI->session->set_flashdata('relog', 'Anda Belum Login');
 			redirect(base_url('secure'),'refresh');
 		}
 
@@ -62,7 +62,7 @@ class Secure_login
 		$this->CI->session->unset_userdata('UserUsername');
 		$this->CI->session->unset_userdata('UserLevelAktif');
 		//redirek login
-		$this->CI->session->set_flashdata('success', 'Anda Berhasil Logout');
+		$this->CI->session->set_flashdata('logout', 'Anda Berhasil Logout');
 		redirect(base_url('secure'),'refresh');
 	}
 

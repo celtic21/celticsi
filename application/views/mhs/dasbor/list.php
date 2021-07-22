@@ -1,18 +1,9 @@
-<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
-  $("#mixin").click(function(){
-          const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000
-        });
-        });
-</script>
+
 
 
 
 <div class="row">
-  <button type="button" onclick="swal.fire('selamat datang')"></button>
+  <button type="button" id="basic" ></button>
 
             <div class="col-lg-4 col-md-4 col-sm-12">
               <div class="card card-statistic-2">

@@ -1,3 +1,4 @@
+//// Show Password /////
 
   function showPassword1() {
 	var x = document.getElementById("password1");
@@ -25,6 +26,8 @@
 	}
 }
 
+//// Form Validasi /////
+
 function daftar_form() {
   let nama = document.forms["fdaftar"]["nama"].value;
   let alamat = document.forms["fdaftar"]["alamat"].value;
@@ -34,40 +37,39 @@ function daftar_form() {
   let password= document.forms["fdaftar"]["password"].value;
   if (nim == ""){
 
-     //alert("Nama tidak boleh kosong");
     //console.log("ini")
     Swal.fire({
           type: 'error',
           title: 'Oops...',
-          text: 'Nim Harus di isi ya'
-        });
-    return false;
-  }else if (alamat == ""){
-     Swal.fire({
-          type: 'error',
-          title: 'Oops...',
-          text: 'alamat Harus di isi ya'
+          text: 'Nim harus di isi ya'
         });
     return false;
   }else if (nama == ""){
      Swal.fire({
           type: 'error',
           title: 'Oops...',
-          text: 'Nama Harus di isi ya'
+          text: 'Nama harus di isi ya'
+        });
+    return false;
+  }else if (alamat == ""){
+     Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Alamat harus di isi ya'
         });
     return false;
   }else if (nohp == ""){
      Swal.fire({
           type: 'error',
           title: 'Oops...',
-          text: 'NoHp Harus di isi ya'
+          text: 'NoHp harus di isi ya'
         });
     return false;
   }else if (password == ""){
      Swal.fire({
           type: 'error',
           title: 'Oops...',
-          text: 'password Harus di isi ya'
+          text: 'Password harus di isi ya'
         });
     return false;
   }else if (email == ""){
@@ -81,9 +83,52 @@ function daftar_form() {
 
 }
 
+function login_mhs() {
+  let nim = document.forms["mhs_login"]["nim"].value;
+  let password = document.forms["mhs_login"]["password"].value;
+console.log("ini")
+  if (nim == ""){
+    //console.log("ini")
+    Swal.fire({
+          icon: 'warning',
+          text: 'Nim harus di isi ya',
+          timer: 4000
+        });
+    return false;
+  }else if (password == ""){
+     Swal.fire({
+          icon: 'warning',
+          text: 'password harus di isi ya',
+          timer: 4000
+        });
+    return false;
+  }
+}
+
+function login_s() {
+  let username = document.forms["s_login"]["username"].value;
+  let password = document.forms["s_login"]["password"].value;
+
+  if (username == ""){
+    //console.log("ini")
+    Swal.fire({
+          icon: 'warning',
+          text: 'Username harus di isi ya',
+          timer: 4000
+        });
+    return false;
+  }else if (password == ""){
+     Swal.fire({
+          icon: 'warning',
+          text: 'password harus di isi ya',
+          timer: 4000
+        });
+    return false;
+  }
+}
 
 
-
+/////////// Sweet Alert /////////////
 
 $(document).ready(function(){
         $("#basic").click(function(){
@@ -377,5 +422,7 @@ $(document).ready(function(){
     });
 
 
+    
 
-"use strict";
+
+

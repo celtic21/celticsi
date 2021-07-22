@@ -17,9 +17,6 @@ class  Login_model extends CI_Model {
 
 	public function secure_login($username,$password)
 	{
-// echo "<pre>";
-// print_r ($username);
-// exit();
 		$this->db->select('*');
 		$this->db->from('tuser');
 		$this->db->where(array('UserUsername' => $username,

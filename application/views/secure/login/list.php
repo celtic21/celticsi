@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <link rel="shorcut icon"  href="<?php echo base_url() ?>assets/img/umk/favicon-16x16.png">
+  <!-- <title><?php echo $title ?> &mdash; <?=$si ?></title> -->
+  <title>Login &mdash; Skripsi</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>vendor/node_modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>vendor/stisla/node_modules/bootstrap-social/bootstrap-social.css">
+
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
@@ -30,47 +33,57 @@
             <div class="card card-primary">
               <div style="text-align: center;" class="card-header" ><h4 >Login</h4></div>
 <?php 
-//notifikasi error
-echo validation_errors('<div class="alert alert-warning">','</div>');
+// //notifikasi error
+// echo validation_errors('<div class="alert alert-warning">','</div>');
 
 //notifikasi gagal login
 if($this->session->flashdata('salah')) {
-  echo '<div class="alert alert-danger">';
+  echo '<div class="alert alert-warning">';
   echo $this->session->flashdata('salah');
   echo '</div>';
 }
 
+//notifikasi relog
+if($this->session->flashdata('relog')) {
+  echo '<div class="alert alert-danger">';
+  echo $this->session->flashdata('relog');
+  echo '</div>';
+}
+
 //notifikasi logout
-if($this->session->flashdata('sukses')) {
-  echo '<div class="alert alert-success">';
-  echo $this->session->flashdata('sukses');
+if($this->session->flashdata('logout')) {
+  echo '<div class="alert alert-info">';
+  echo $this->session->flashdata('logout');
   echo '</div>';
 }
  ?>
               <div class="card-body">
-                <form name="flogin" action="<?= base_url('home/secure'); ?>" onsubmit="return login_form()"  method="POST">
+                <form name="s_login" action="<?= base_url('home/secure'); ?>" onsubmit="return login_s()"  method="POST">
                   <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" name="username" tabindex="1" required="">
-                    <div class="invalid-feedback">
-                      Username Harus Diisi
+                      <label for="username">Username</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-id-card"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control phone-number " name="username" >
+                      
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="form-group">
-                    <div class="d-block">
-                      <label for="password" class="control-label">Password</label>
-                      <!-- <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
-                          Forgot Password?
-                        </a>
-                      </div> -->
+                    <div class="form-group">
+                      <label for="password2" class="d-block">Password</label>
+                      <div class="input-group">
+                      <input id="password2" type="password" class="form-control" name="password">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <div class="btn btn-sm" onclick="showPassword2()"><i id="icon2" class="fa fa-eye-slash"></i></div>
+                          </div>
+                        </div>
+                       
+                      </div>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2">
-                    <div class="invalid-feedback">
-                      Password Harus Diisi
-                    </div>
-                  </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
@@ -124,10 +137,12 @@ if($this->session->flashdata('sukses')) {
   <script src="<?php echo base_url() ?>assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+ 
 
   <!-- Template JS File -->
-  <script src="<?php echo base_url() ?> assets/js/scripts.js"></script>
-  <script src="<?php echo base_url() ?> assets/js/custom.js"></script> 
+  <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/custom.js"></script> 
+  <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
 
   <!-- Page Specific JS File -->
 </body>

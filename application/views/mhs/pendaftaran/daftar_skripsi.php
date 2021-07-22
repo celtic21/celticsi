@@ -5,41 +5,48 @@
                     <h4>Silahkan upload File Pendaftaran</h4>
                   </div>
                   <div class="card-body">
-                    <div class="section-title mt-0">File KRS</div>
+
+
+                <?php 
+                    echo form_open_multipart(base_url('mhs/pendaftaran/proses_dskripsi'));
+                     ?>
+                
+              <label>* Upload file gambar</label>
+               <div class="section-title mt-0">File KRS</div>
                     <div class="form-group" >
-                      <input type="file" class="form-control">
+                      <input name="krs" type="file" class="form-control">
                     </div>
                     <div class="section-title mt-0">File Transkip Nilai</div>
                     <div class="form-group" >
-                      <input type="file" class="form-control">
+                      <input name="skrip" type="file" class="form-control">
                     </div>
                     <div class="section-title mt-0">File Bukti Pembayaran</div>
                     <div class="form-group" >
-                      <input type="file" class="form-control">
-                    </div>
+                      <input name="slip" type="file" class="form-control">
+                    </div> 
 
-                    <div class="section-title mt-1">File KRS</div>
+                    <!-- <div class="section-title mt-1">File KRS</div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
+                      <input class="form-control" name="krs" type="file" class="custom-file-input" id="customFile">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
 
                     <div class="section-title mt-1">File Transkip Nilai</div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
+                      <input name="skrip" type="file" class="custom-file-input" id="customFile">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
 
                     <div class="section-title mt-1">File Bukti Pembayaran</div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
+                      <input class="form-control" name="slip" type="file" class="custom-file-input" id="customFile">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
-
+-->
                      <div class="card-footer text-right ">
                     <button class="btn btn-primary mr-1" type="submit">Submit</button>
                     <button class="btn btn-secondary" type="reset">Reset</button>
-                    </div>
+                    </div> 
 
                   </div>
                 </div>

@@ -17,9 +17,6 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('nim', 'nim', 'required',
 			array(	'required'	=> '%s harus diisi'));
 
-	
- 
-
 		if($valid->run()===FALSE){
 		//end validasi
 

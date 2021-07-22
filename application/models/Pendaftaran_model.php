@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_model extends CI_Model {
+class Pendaftaran_model extends CI_Model {
 
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Admin_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function listing()
+	public function daftar_skripsi()
 	{
 		$this->db->select('*');
 		$this->db->from('user');
@@ -17,9 +17,8 @@ class Admin_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	
 
 }
 
-/* End of file User_model.php */
-/* Location: ./application/models/User_model.php */
+/* End of file Pendaftaran_model.php */
+/* Location: ./application/models/Pendaftaran_model.php */

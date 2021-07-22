@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <link rel="shorcut icon"  href="<?php echo base_url() ?>assets/img/umk/favicon-16x16.png">
   <!-- <title><?php echo $title ?> &mdash; <?=$si ?></title> -->
-  <title>Login &mdash; Stisla</title>
+  <title>Login &mdash; Skripsi</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
   <div id="app">
     <section class="section">
       <div class="d-flex flex-wrap align-items-stretch">
@@ -35,8 +36,8 @@
             </h4>
 
 <?php 
-//notifikasi error
-echo validation_errors('<div class="alert alert-warning">','</div>');
+// //notifikasi error
+// echo validation_errors('<div class="alert alert-warning">','</div>');
 
 //notifikasi gagal login
 if($this->session->flashdata('salah')) {
@@ -45,17 +46,23 @@ if($this->session->flashdata('salah')) {
   echo '</div>';
 }
 
-//notifikasi logout
-if($this->session->flashdata('sukses')) {
-  echo '<div class="alert alert-success">';
-  echo $this->session->flashdata('sukses');
+//notifikasi relog
+if($this->session->flashdata('relog')) {
+  echo '<div class="alert alert-danger">';
+  echo $this->session->flashdata('relog');
   echo '</div>';
 }
 
+//notifikasi logout
+if($this->session->flashdata('logout')) {
+  echo '<div class="alert alert-info">';
+  echo $this->session->flashdata('logout');
+  echo '</div>';
+}
+ ?>
 
- ?>  </div>
-          <form name="flogin" action="<?= base_url('home/login'); ?>" onsubmit="return login_form()"  method="POST">
-            <!-- <form method="POST" action="#" class="needs-validation" novalidate=""> -->
+          </div>
+          <form name="mhs_login" action="<?= base_url('home/login'); ?>" onsubmit="return login_mhs()"  method="POST">
                     <div class="form-group">
                       <label for="nim">NIM</label>
                       <div class="input-group">
@@ -65,9 +72,7 @@ if($this->session->flashdata('sukses')) {
                           </div>
                         </div>
                         <input type="text" class="form-control phone-number " name="nim" >
-                        <div class="invalid-feedback">
-                         Silahkan Isi NIM Anda
-                      </div>
+                      
                       </div>
                     </div>
 
@@ -80,9 +85,7 @@ if($this->session->flashdata('sukses')) {
                             <div class="btn btn-sm" onclick="showPassword2()"><i id="icon2" class="fa fa-eye-slash"></i></div>
                           </div>
                         </div>
-                        <div class="invalid-feedback">
-                         Silahkan Isi Password Anda
-                      </div>
+                       
                       </div>
                     </div>
                

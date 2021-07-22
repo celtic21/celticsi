@@ -22,10 +22,12 @@ class Mhs_login
 			$nim		= $cek->MhsNim;
 			$nama		= $cek->MhsNama;
 			$nohp		= $cek->MhsNohp;
+			$email		= $cek->MhsEmail;
 			//buat session
 			$this->CI->session->set_userdata('MhsNim',$nim);
 			$this->CI->session->set_userdata('MhsNama',$nama);
 			$this->CI->session->set_userdata('MhsNohp',$nohp);
+			$this->CI->session->set_userdata('MhsEmail',$email);
 			//redirek ke dasbor
 			redirect(base_url('mhs/dasbor'),'refresh');
 		}else{
@@ -41,7 +43,7 @@ class Mhs_login
 		//periksa apakah session sudah ada atau belum
 		if ($this->CI->session->userdata('MhsNim') == "") 
 		{
-			$this->CI->session->set_flashdata('warning', 'Anda Belum Login');
+			$this->CI->session->set_flashdata('relog', 'Anda Belum Login');
 			redirect(base_url('home'),'refresh');
 		}
 
@@ -53,8 +55,9 @@ class Mhs_login
 		$this->CI->session->unset_userdata('MhsNim');
 		$this->CI->session->unset_userdata('MhsNama');
 		$this->CI->session->unset_userdata('MhsNohp');
+		$this->CI->session->unset_userdata('MhsEmail');
 		//redirek login
-		$this->CI->session->set_flashdata('success', 'Anda Berhasil Logout');
+		$this->CI->session->set_flashdata('logout', 'Anda Berhasil Logout');
 		redirect(base_url('home'),'refresh');
 	}
 
